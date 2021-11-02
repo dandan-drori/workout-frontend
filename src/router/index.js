@@ -1,27 +1,58 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Login from '../views/Login.vue'
+import store from '../store'
 
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+	{
+		path: '/workout/new',
+		component: () => import('../views/Add.vue'),
+	},
+	{
+		path: '/workout/:id',
+		component: () => import('../views/Edit.vue'),
+	},
+	{
+		path: '/workout',
+		component: () => import('../views/Workouts.vue'),
+	},
+	{
+		path: '/workout',
+		component: () => import('../views/Workouts.vue'),
+	},
+	{
+		path: '/login',
+		component: Login,
+	},
+	{
+		path: '/signup',
+		component: () => import('../views/Signup.vue'),
+	},
+	{
+		path: '/',
+		component: () => import('../views/Home.vue'),
+	},
 ]
 
 const router = new VueRouter({
-  routes
+	routes,
+})
+
+// route guards
+router.beforeEach((to, from, next) => {
+	if (to.fullPath === '/') {
+		if (!store.getters.loggedinUser) {
+			next('/login')
+		}
+	}
+	if (to.fullPath === '/login') {
+		if (store.getters.loggedinUser) {
+			next('/')
+		}
+	}
+	next()
 })
 
 export default router

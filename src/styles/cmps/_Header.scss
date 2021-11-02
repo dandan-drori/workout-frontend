@@ -1,0 +1,28 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1.5rem;
+	background-color: #234;
+
+	.logo {
+		color: #fefefe;
+		letter-spacing: 2px;
+	}
+
+	.nav {
+		a {
+			color: #fefefe;
+			margin-right: 1rem;
+
+			&.router-link-exact-active {
+				color: rgb(118, 174, 230);
+			}
+		}
+		button {
+			background-color: transparent;
+			border: none;
+			color: #fefefe;
+		}
+	}
+}

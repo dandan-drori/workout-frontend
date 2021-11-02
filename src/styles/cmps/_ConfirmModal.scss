@@ -1,0 +1,60 @@
+.confirm-modal-container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.55);
+	cursor: pointer;
+
+	section {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%) scale(0);
+		cursor: default;
+		background-color: #fefefe;
+		box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.25);
+		padding: 0.8rem;
+		padding-left: 0.8rem;
+		padding-top: 0.8rem;
+		border-radius: 0.3rem;
+		animation: popup 0.2s ease-in-out forwards;
+
+		h2 {
+			margin-bottom: 0.5rem;
+			color: rgb(255, 74, 74);
+		}
+		p {
+			margin-bottom: 2rem;
+			max-width: 40ch;
+			color: #777;
+		}
+		.actions-container {
+			display: flex;
+			justify-content: flex-end;
+			button {
+				padding: 0.3rem 0.5rem;
+				border-radius: 0.3rem;
+				border: none;
+				color: #fefefe;
+				border: 2px solid rgb(255, 74, 74);
+				&:first-of-type {
+					border-color: transparent;
+					color: #888;
+					background-color: transparent;
+					margin-right: 0.5rem;
+				}
+				&:last-of-type {
+					background-color: rgb(255, 74, 74);
+				}
+			}
+		}
+	}
+}
+
+@keyframes popup {
+	to {
+		transform: translate(-50%, -50%) scale(1);
+	}
+}

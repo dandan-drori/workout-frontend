@@ -1,0 +1,92 @@
+.edit {
+	padding: 1.5rem;
+
+	h2 {
+		margin-bottom: 1rem;
+		font-size: 1.35rem;
+	}
+
+	ul {
+		margin-bottom: 1.5rem;
+
+		li {
+			display: grid;
+			grid-template-columns: 300px 60px 60px 100px 60px 60px;
+			place-items: center;
+			grid-auto-rows: 50px;
+			margin-bottom: 0.5rem;
+
+			span {
+				display: flex;
+				align-items: center;
+				font-size: 1.2rem;
+
+				&:first-of-type {
+					justify-self: flex-start;
+				}
+
+				&:last-of-type {
+					background: #ddd;
+					color: #234;
+					padding: 0.3rem;
+					border-radius: 0.3rem;
+				}
+			}
+
+			button {
+				border-radius: 50%;
+				width: 50px;
+				height: 50px;
+				font-size: 1rem;
+				border: 2px solid #234;
+				background-color: #234;
+				color: #fefefe;
+
+				&:hover {
+					background-color: transparent;
+					color: #234;
+				}
+			}
+		}
+
+		@media screen and (max-width: 768px) {
+			margin-bottom: 0;
+
+			li {
+				grid-template-columns: 60px 60px 100px 60px 60px;
+				grid-template-rows: 5px 100px;
+
+				span {
+					&:first-of-type {
+						grid-column: 1/ 4;
+						font-weight: bold;
+						text-decoration: underline;
+					}
+					&:last-of-type {
+						grid-row: 2;
+					}
+				}
+
+				button {
+					grid-row: 2;
+				}
+			}
+		}
+	}
+
+	& > button {
+		background-color: #234;
+		color: #fefefe;
+		border: 2px solid #234;
+		padding: 0.3rem 0.5rem;
+		border-radius: 0.3rem;
+		font-size: 1.1rem;
+
+		&:disabled {
+			background-color: #ddd;
+			color: #aaa;
+			border-color: #bbb;
+			cursor: not-allowed;
+		}
+	}
+}

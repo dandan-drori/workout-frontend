@@ -1,0 +1,29 @@
+.home {
+	display: grid;
+	place-items: center;
+	padding: 1.5rem;
+
+	button {
+		font-size: 0.7rem;
+		background-color: transparent;
+		border: 2px solid #234;
+		outline: none;
+		border-radius: 3rem;
+		padding: 0.5rem 2rem;
+		transition: background-color 0.2s ease-in-out;
+
+		&:hover {
+			background-color: #234;
+
+			p {
+				color: #fefefe;
+			}
+		}
+
+		p {
+			transform: scale(3) translateY(-0.075rem);
+			transition: color 0.2s ease-in-out;
+			color: #234;
+		}
+	}
+}
